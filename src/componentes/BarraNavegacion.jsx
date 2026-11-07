@@ -20,6 +20,7 @@ function BarraNavegacion({
   categoriaActiva,
   onCategoriaChange,
   carritoCantidad,
+  onAbrirCarrito,
 }) {
   const [menuAbierto, setMenuAbierto] = useState(false);
   const [busquedaAbierta, setBusquedaAbierta] = useState(false);
@@ -65,10 +66,14 @@ function BarraNavegacion({
               <span>Iniciar sesión</span>
             </button>
 
-            <button className="boton-carrito" aria-label="Carrito de compras">
-              <ShoppingBag size={19} />
-              <span>{String(carritoCantidad).padStart(2, '0')}</span>
-            </button>
+            <button
+  className="boton-carrito"
+  onClick={onAbrirCarrito}
+  aria-label="Abrir carrito de compras"
+>
+  <ShoppingBag size={19} />
+  <span>{String(carritoCantidad).padStart(2, '0')}</span>
+</button>
           </div>
         </div>
 

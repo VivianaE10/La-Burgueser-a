@@ -531,4 +531,161 @@ img {
       aspect-ratio: 1.25 / 1;
     }
   }
+  /* CARRITO DE COMPRAS */
+
+.fondo-carrito {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    justify-content: flex-end;
+  }
   
+  .panel-carrito {
+    width: 100%;
+    max-width: 430px;
+    height: 100%;
+    background: #fff;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    animation: aparecer-carrito 0.25s ease;
+  }
+  
+  @keyframes aparecer-carrito {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  .encabezado-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .encabezado-carrito h2 {
+    font-size: 23px;
+  }
+  
+  .encabezado-carrito p {
+    color: #777;
+    font-size: 13px;
+    margin-top: 5px;
+  }
+  
+  .encabezado-carrito button,
+  .controles-cantidad button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+  
+  .carrito-vacio {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    color: #777;
+  }
+  
+  .carrito-vacio h3 {
+    color: #222;
+  }
+  
+  .productos-carrito {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 0;
+  }
+  
+  .producto-carrito {
+    display: flex;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .producto-carrito img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .detalle-carrito {
+    flex: 1;
+  }
+  
+  .detalle-carrito h3 {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  
+  .detalle-carrito strong {
+    font-size: 14px;
+  }
+  
+  .controles-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  
+  .controles-cantidad button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .controles-cantidad span {
+    font-size: 14px;
+  }
+  
+  .controles-cantidad .boton-eliminar {
+    margin-left: auto;
+    color: #c0392b;
+  }
+  
+  .resumen-carrito {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+  }
+  
+  .resumen-carrito div {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    margin-bottom: 18px;
+  }
+  
+  .boton-finalizar-compra {
+    width: 100%;
+    padding: 15px;
+    background: #171717;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .boton-finalizar-compra:hover {
+    background: #333;
+  }
+  
+  @media (max-width: 480px) {
+    .panel-carrito {
+      padding: 20px;
+    }
+  }
