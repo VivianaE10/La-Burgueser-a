@@ -1,6 +1,8 @@
 
 @import "tailwindcss";
 
+/* CONFIGURACIÓN GENERAL */
+
 :root {
   font-family: Arial, Helvetica, sans-serif;
   color: #171717;
@@ -45,12 +47,488 @@ img {
 }
 
 .contenedor {
-  width: min(1440px, 100% - 48px);
+  width: min(1440px, calc(100% - 48px));
   margin-inline: auto;
 }
 
-@media (max-width: 600px) {
-  .contenedor {
-    width: min(100% - 28px, 1440px);
+/* BARRA SUPERIOR */
+
+.encabezado {
+  width: 100%;
+  background: #ffffff;
+  position: relative;
+  z-index: 20;
+}
+
+.barra-superior {
+  height: 65px;
+  padding: 0 35px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  border-bottom: 1px solid #dedede;
+}
+
+.boton-icono {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.boton-icono:hover {
+  background: #eeeeee;
+}
+
+.logo-restaurante {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #111111;
+  line-height: 1;
+}
+
+.logo-restaurante span {
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.logo-restaurante small {
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  margin-top: 5px;
+}
+
+.acciones-usuario {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.boton-iniciar-sesion {
+  height: 42px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid #111111;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #111111;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+.boton-iniciar-sesion:hover {
+  background: #111111;
+  color: #ffffff;
+}
+
+.boton-carrito {
+  height: 42px;
+  padding: 0 13px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: #050505;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+/* NAVEGACIÓN DE CATEGORÍAS */
+
+.navegacion-categorias {
+  min-height: 53px;
+  padding: 6px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  border-bottom: 1px solid #111111;
+}
+
+.categoria {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px;
+  background: transparent;
+  border: none;
+  color: #222222;
+  font-size: 12px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+
+.categoria:hover {
+  opacity: 0.65;
+}
+
+.icono-categoria {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #222222;
+  border-radius: 50%;
+}
+
+.categoria.activa .icono-categoria {
+  background: #050505;
+  color: #ffffff;
+}
+
+/* MENÚ LATERAL */
+
+.fondo-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: rgb(0 0 0 / 45%);
+}
+
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 31;
+  width: min(340px, 85vw);
+  padding: 25px;
+  background: #ffffff;
+  box-shadow: 5px 0 25px rgb(0 0 0 / 12%);
+  animation: entrada-menu 0.25s ease;
+}
+
+.encabezado-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.encabezado-menu h2 {
+  font-size: 20px;
+}
+
+.texto-menu {
+  margin: 20px 0;
+  color: #777777;
+  font-size: 13px;
+}
+
+.opcion-menu {
+  width: 100%;
+  padding: 14px 5px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #eeeeee;
+  text-align: left;
+  font-size: 14px;
+}
+
+.opcion-menu:hover {
+  background: #f5f5f5;
+}
+
+/* BUSCADOR */
+
+.busqueda {
+  padding: 15px 30px;
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.busqueda input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  outline: none;
+}
+
+.busqueda button,
+.aviso-sesion button {
+  border: none;
+  background: transparent;
+}
+
+.aviso-sesion {
+  padding: 12px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f5f5f5;
+  font-size: 13px;
+}
+
+/* ANIMACIONES */
+
+@keyframes entrada-menu {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
   }
 }
+
+/* ADAPTACIÓN A CELULARES */
+
+@media (max-width: 900px) {
+  .navegacion-categorias {
+    justify-content: flex-start;
+    overflow-x: auto;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .barra-superior {
+    height: 60px;
+    padding: 0 12px;
+  }
+
+  .logo-restaurante span {
+    font-size: 17px;
+    letter-spacing: 1px;
+  }
+
+  .logo-restaurante small {
+    font-size: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .acciones-usuario {
+    gap: 5px;
+  }
+
+  .boton-iniciar-sesion {
+    width: 40px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .boton-iniciar-sesion span {
+    display: none;
+  }
+
+  .boton-carrito {
+    padding: 0 8px;
+  }
+
+  .navegacion-categorias {
+    padding: 5px 12px;
+  }
+}
+
+
+/* SECCIÓN DE PRODUCTOS */
+
+.seccion-productos {
+    padding: 45px 0 65px;
+  }
+  
+  .encabezado-productos {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 25px;
+  }
+  
+  .etiqueta-seccion {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #8a8a8a;
+  }
+  
+  .encabezado-productos h2 {
+    margin-top: 7px;
+    font-size: 27px;
+    font-weight: 800;
+    color: #151515;
+  }
+  
+  .encabezado-productos p {
+    margin-top: 7px;
+    color: #777777;
+    font-size: 13px;
+  }
+  
+  .cantidad-productos {
+    color: #777777;
+    font-size: 12px;
+  }
+  
+  /* REJILLA DE TARJETAS */
+  
+  .rejilla-productos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px 20px;
+  }
+  
+  /* TARJETA */
+  
+  .tarjeta-producto {
+    overflow: hidden;
+    background: #f7f7f7;
+    border-radius: 14px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  
+  .tarjeta-producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgb(0 0 0 / 10%);
+  }
+  
+  .imagen-producto {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1.15 / 1;
+    overflow: hidden;
+    background: #eeeeee;
+  }
+  
+  .imagen-producto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  
+  .tarjeta-producto:hover .imagen-producto img {
+    transform: scale(1.04);
+  }
+  
+  .boton-favorito {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 50%;
+    background: rgb(0 0 0 / 30%);
+    color: #ffffff;
+  }
+  
+  .informacion-producto {
+    padding: 14px 17px 16px;
+  }
+  
+  .informacion-producto h3 {
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+  
+  .informacion-producto p {
+    margin-top: 6px;
+    color: #666666;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  
+  .pie-tarjeta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: 13px;
+  }
+  
+  .pie-tarjeta strong {
+    font-size: 16px;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+  
+  .boton-agregar {
+    min-width: 105px;
+    height: 36px;
+    padding: 0 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    background: #ffffff;
+    border: 1px solid #111111;
+    border-radius: 9px;
+    font-size: 12px;
+    font-weight: 700;
+    transition: background 0.2s, color 0.2s;
+  }
+  
+  .boton-agregar:hover {
+    background: #111111;
+    color: #ffffff;
+  }
+  
+  .sin-productos {
+    padding: 60px 20px;
+    text-align: center;
+    background: #f7f7f7;
+    border-radius: 12px;
+  }
+  
+  .sin-productos p {
+    margin-top: 8px;
+    color: #777777;
+    font-size: 13px;
+  }
+  
+  /* RESPONSIVE */
+  
+  @media (max-width: 900px) {
+    .rejilla-productos {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .seccion-productos {
+      padding-top: 30px;
+    }
+  
+    .encabezado-productos h2 {
+      font-size: 22px;
+    }
+  
+    .cantidad-productos {
+      display: none;
+    }
+  
+    .rejilla-productos {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+  
+    .imagen-producto {
+      aspect-ratio: 1.25 / 1;
+    }
+  }
+  
