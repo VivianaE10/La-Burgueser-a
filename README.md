@@ -1,16 +1,116 @@
-# React + Vite
+# La Burguería 🍔
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## Descripción del proyecto
 
-Currently, two official plugins are available:
+La Burguería es una página web de un restaurante de hamburguesas, desarrollada como parte de la actividad académica AA2: Taller Grupal – Línea Base Software de Restaurante.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+El proyecto presenta un catálogo de productos y una interfaz que permite al usuario explorar las opciones disponibles y agregar productos a un carrito de compras.
 
-## React Compiler
+## Tecnologías utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- JavaScript
+- Tailwind CSS
+- CSS
+- Lucide React
+- Git y GitHub
 
-## Expanding the Oxlint configuration
+## Funcionalidades implementadas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- Visualización de un catálogo de seis productos.
+- Navegación mediante menú lateral.
+- Categorías de productos: Combos, Hamburguesas y Pollo.
+- Barra de navegación con iconos.
+- Botón de búsqueda.
+- Botón de inicio de sesión con aviso informativo.
+- Carrito de compras.
+- Agregar productos al carrito.
+- Modificar cantidades.
+- Eliminar productos del carrito.
+- Cálculo del total de la compra.
+- Pie de página con información del restaurante y redes sociales.
+
+## Estructura del proyecto
+
+```text
+hamburgueseria-restaurante/
+│
+├── public/
+│   └── imagenes/
+│
+├── src/
+│   ├── componentes/
+│   │   ├── BarraNavegacion.jsx
+│   │   ├── CarritoCompras.jsx
+│   │   ├── ListaProductos.jsx
+│   │   ├── PiePagina.jsx
+│   │   └── TarjetaProducto.jsx
+│   │
+│   ├── datos/
+│   │   └── productos.js
+│   │
+│   ├── estilos/
+│   │   └── global.css
+│   │
+│   ├── App.jsx
+│   └── main.jsx
+│
+├── index.html
+├── package.json
+├── vite.config.js
+└── README.md
+```
+
+## Instalación y ejecución
+
+### Requisitos
+
+- Node.js
+- npm
+
+### Pasos
+
+1. Clonar el repositorio:
+
+```bash
+git clone https://github.com/VivianaE10/La-Burgueser-a.git
+```
+
+2. Ingresar a la carpeta:
+
+```bash
+cd hamburgueseria-restaurante
+```
+
+3. Instalar las dependencias:
+
+```bash
+npm install
+```
+
+4. Ejecutar el proyecto:
+
+```bash
+npm run dev
+```
+
+5. Abrir en el navegador la dirección local indicada por Vite.
+
+## Control de versiones
+
+El proyecto utiliza Git para el control de versiones y GitHub para alojar el repositorio y conservar el historial de cambios.
+
+Repositorio:
+
+https://github.com/VivianaE10/La-Burgueser-a
+
+## Alcance de la versión actual
+
+Esta versión corresponde a una interfaz web desarrollada con React y datos de productos definidos localmente en JavaScript.
+
+El inicio de sesión es informativo y el botón de continuar compra no procesa pedidos ni pagos reales. El carrito funciona durante la sesión actual y no utiliza persistencia en una base de datos.
+
+## Autoría
+
+Proyecto académico desarrollado para la actividad AA2 – Línea Base Software de Restaurante.

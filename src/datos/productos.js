@@ -41,12 +41,13 @@ export const productos = [
       imagen: "/imagenes/combo-pollo.jpg"
     },
     {
-      id: 6,
-      nombre: "Combo especial de la casa",
-      descripcion: "Hamburguesa especial con queso, papas y bebida.",
-      precio: 41900,
-      categoria: "Combos",
-      imagen: "/imagenes/combo-especial.jpg"
-    }
+        id: 6,
+        nombre: "Combo especial de la casa",
+        descripcion: "Hamburguesa especial con queso, papas y bebida.",
+        precio: 41900,
+        categoria: "Combos",
+        imagen: "/imagenes/combo-especial.jpg"
+      }
+    
   ];
   
