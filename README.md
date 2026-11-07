@@ -1,10 +1,20 @@
 # La Burguería 🍔
 
+Proyecto académico universitario
+
 ## Descripción del proyecto
 
 La Burguería es una página web de un restaurante de hamburguesas, desarrollada como parte de la actividad académica AA2: Taller Grupal – Línea Base Software de Restaurante.
 
 El proyecto presenta un catálogo de productos y una interfaz que permite al usuario explorar las opciones disponibles y agregar productos a un carrito de compras.
+
+## Demo del proyecto
+
+La aplicación web se encuentra desplegada en Vercel y puede visualizarse en el siguiente enlace:
+
+**Ver página web:** [https://la-burgueser-a.vercel.app/]
+
+**Repositorio:** https://github.com/VivianaE10/La-Burgueser-a
 
 ## Tecnologías utilizadas
 
