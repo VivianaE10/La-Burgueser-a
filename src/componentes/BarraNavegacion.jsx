@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import {
   Menu,
@@ -9,23 +8,18 @@ import {
   Beef,
   Drumstick,
   Coffee,
-  IceCream,
-  Utensils
 } from 'lucide-react';
 
 const categorias = [
-  { nombre: 'Combos', icono: Beef },
-  { nombre: 'Hamburguesas', icono: Beef },
-  { nombre: 'Pollo', icono: Drumstick },
-  { nombre: 'Acompañamientos', icono: Utensils },
-  { nombre: 'Helados y malteadas', icono: IceCream },
-  { nombre: 'Bebidas', icono: Coffee }
+  { nombre: 'Combos', Icono: Beef },
+  { nombre: 'Hamburguesas', Icono: Beef },
+  { nombre: 'Pollo', Icono: Drumstick },
 ];
 
 function BarraNavegacion({
   categoriaActiva,
   onCategoriaChange,
-  carritoCantidad
+  carritoCantidad,
 }) {
   const [menuAbierto, setMenuAbierto] = useState(false);
   const [busquedaAbierta, setBusquedaAbierta] = useState(false);
@@ -38,10 +32,9 @@ function BarraNavegacion({
 
   return (
     <>
+    
       <header className="encabezado">
-
         <div className="barra-superior">
-
           <button
             className="boton-icono"
             onClick={() => setMenuAbierto(true)}
@@ -56,7 +49,6 @@ function BarraNavegacion({
           </div>
 
           <div className="acciones-usuario">
-
             <button
               className="boton-icono"
               onClick={() => setBusquedaAbierta(!busquedaAbierta)}
@@ -77,7 +69,6 @@ function BarraNavegacion({
               <ShoppingBag size={19} />
               <span>{String(carritoCantidad).padStart(2, '0')}</span>
             </button>
-
           </div>
         </div>
 
@@ -101,25 +92,24 @@ function BarraNavegacion({
             </button>
           </div>
         )}
-
-        <nav className="navegacion-categorias">
-          {categorias.map(({ nombre, icono: Icono }) => (
-            <button
-              key={nombre}
-              className={`categoria ${
-                categoriaActiva === nombre ? 'activa' : ''
-              }`}
-              onClick={() => seleccionarCategoria(nombre)}
-            >
-              <span className="icono-categoria">
-                <Icono size={19} />
-              </span>
-              <span>{nombre}</span>
-            </button>
-          ))}
-        </nav>
-
       </header>
+
+      <nav className="navegacion-categorias">
+  {categorias.map(({ nombre, Icono }) => (
+    <button
+      key={nombre}
+      className={`categoria ${
+        categoriaActiva === nombre ? 'activa' : ''
+      }`}
+      onClick={() => onCategoriaChange(nombre)}
+    >
+      <span className="icono-categoria">
+        <Icono size={19} />
+      </span>
+      <span>{nombre}</span>
+    </button>
+  ))}
+</nav>
 
       {menuAbierto && (
         <>
@@ -129,7 +119,6 @@ function BarraNavegacion({
           />
 
           <aside className="menu-lateral">
-
             <div className="encabezado-menu">
               <h2>LA BURGUERÍA</h2>
               <button
@@ -141,21 +130,20 @@ function BarraNavegacion({
               </button>
             </div>
 
-            <p className="texto-menu">
-              Descubre todo nuestro sabor
-            </p>
+            <p className="texto-menu">Nuestro menú</p>
 
-            {categorias.map(({ nombre, icono: Icono }) => (
+            {categorias.map(({ nombre, Icono }) => (
               <button
                 key={nombre}
-                className="opcion-menu"
+                className={`opcion-menu ${
+                  categoriaActiva === nombre ? 'activa' : ''
+                }`}
                 onClick={() => seleccionarCategoria(nombre)}
               >
                 <Icono size={20} />
                 <span>{nombre}</span>
               </button>
             ))}
-
           </aside>
         </>
       )}
