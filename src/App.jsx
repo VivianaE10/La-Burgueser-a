@@ -3,6 +3,7 @@ import BarraNavegacion from './componentes/BarraNavegacion';
 import ListaProductos from './componentes/ListaProductos';
 import CarritoCompras from './componentes/CarritoCompras';
 import { productos } from './datos/productos';
+import PiePagina from './componentes/PiePagina';
 
 function App() {
   const [categoriaActiva, setCategoriaActiva] = useState('Combos');
@@ -70,7 +71,7 @@ function App() {
           onAgregar={agregarAlCarrito}
         />
       </main>
-
+      <PiePagina />
       {carritoAbierto && (
         <CarritoCompras
           carrito={carrito}
