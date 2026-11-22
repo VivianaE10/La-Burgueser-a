@@ -8,6 +8,11 @@ import {
   Minus,
   CheckCircle,
 } from 'lucide-react';
+import {
+  calcularCantidadTotal,
+  calcularSubtotal,
+  calcularTotal,
+} from '../utils/carrito';
 
 function CarritoCompras({
   carrito,
@@ -18,17 +23,10 @@ function CarritoCompras({
   const [compraConfirmada, setCompraConfirmada] = useState(false);
 
   // Calcular el total de unidades
-  const cantidadTotal = carrito.reduce(
-    (total, producto) => total + producto.cantidad,
-    0
-  );
+  const cantidadTotal = calcularCantidadTotal(carrito);
 
   // Calcular el valor total del carrito
-  const total = carrito.reduce(
-    (acumulado, producto) =>
-      acumulado + producto.precio * producto.cantidad,
-    0
-  );
+  const total = calcularTotal(carrito);
 
   // Formatear precios en pesos colombianos
   const formatoPrecio = (valor) =>
@@ -88,7 +86,7 @@ function CarritoCompras({
                     <span className="subtotal-producto">
                       Subtotal: $
                       {formatoPrecio(
-                        producto.precio * producto.cantidad
+                        calcularSubtotal(producto)
                       )}
                     </span>
 
