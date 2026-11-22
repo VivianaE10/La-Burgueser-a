@@ -24,7 +24,11 @@ function CarritoCompras({
         <div className="encabezado-carrito">
           <div>
             <h2>Mi carrito</h2>
-            <p>{carrito.length} productos diferentes</p>
+            <p>
+  {carrito.reduce((total, producto) => total + producto.cantidad, 0)}
+  {' '}
+  productos en tu carrito
+</p>
           </div>
 
           <button onClick={onCerrar} aria-label="Cerrar carrito">
@@ -46,8 +50,15 @@ function CarritoCompras({
                   <img src={producto.imagen} alt={producto.nombre} />
 
                   <div className="detalle-carrito">
-                    <h3>{producto.nombre}</h3>
-                    <strong>${formatoPrecio(producto.precio)}</strong>
+  <h3>{producto.nombre}</h3>
+
+  <strong>
+    ${formatoPrecio(producto.precio)} unidad
+  </strong>
+
+  <span className="subtotal-producto">
+    Subtotal: ${formatoPrecio(producto.precio * producto.cantidad)}
+  </span>
 
                     <div className="controles-cantidad">
                       <button
