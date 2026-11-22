@@ -777,3 +777,38 @@ img {
     font-size: 0.85rem;
     color: #777;
   }
+
+.subtotal-producto {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.mensaje-confirmacion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
+  padding: 18px;
+  border-radius: 12px;
+  background-color: #f0f8e9;
+  color: #315b24;
+  text-align: center;
+}
+
+.mensaje-confirmacion h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.mensaje-confirmacion p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.controles-cantidad button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

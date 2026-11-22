@@ -1,4 +1,13 @@
-import { X, Trash2, ShoppingBag, Plus, Minus } from 'lucide-react';
+
+import { useState } from 'react';
+import {
+  X,
+  Trash2,
+  ShoppingBag,
+  Plus,
+  Minus,
+  CheckCircle,
+} from 'lucide-react';
 
 function CarritoCompras({
   carrito,
@@ -6,12 +15,22 @@ function CarritoCompras({
   onQuitar,
   onCambiarCantidad,
 }) {
+  const [compraConfirmada, setCompraConfirmada] = useState(false);
+
+  // Calcular el total de unidades
+  const cantidadTotal = carrito.reduce(
+    (total, producto) => total + producto.cantidad,
+    0
+  );
+
+  // Calcular el valor total del carrito
   const total = carrito.reduce(
     (acumulado, producto) =>
       acumulado + producto.precio * producto.cantidad,
     0
   );
 
+  // Formatear precios en pesos colombianos
   const formatoPrecio = (valor) =>
     valor.toLocaleString('es-CO');
 
@@ -21,21 +40,24 @@ function CarritoCompras({
         className="panel-carrito"
         onClick={(evento) => evento.stopPropagation()}
       >
+        {/* Encabezado */}
         <div className="encabezado-carrito">
           <div>
             <h2>Mi carrito</h2>
             <p>
-  {carrito.reduce((total, producto) => total + producto.cantidad, 0)}
-  {' '}
-  productos en tu carrito
-</p>
+              {cantidadTotal} productos en tu carrito
+            </p>
           </div>
 
-          <button onClick={onCerrar} aria-label="Cerrar carrito">
+          <button
+            onClick={onCerrar}
+            aria-label="Cerrar carrito"
+          >
             <X />
           </button>
         </div>
 
+        {/* Carrito vacío */}
         {carrito.length === 0 ? (
           <div className="carrito-vacio">
             <ShoppingBag size={45} />
@@ -44,28 +66,40 @@ function CarritoCompras({
           </div>
         ) : (
           <>
+            {/* Lista de productos */}
             <div className="productos-carrito">
               {carrito.map((producto) => (
-                <article className="producto-carrito" key={producto.id}>
-                  <img src={producto.imagen} alt={producto.nombre} />
+                <article
+                  className="producto-carrito"
+                  key={producto.id}
+                >
+                  <img
+                    src={producto.imagen}
+                    alt={producto.nombre}
+                  />
 
                   <div className="detalle-carrito">
-  <h3>{producto.nombre}</h3>
+                    <h3>{producto.nombre}</h3>
 
-  <strong>
-    ${formatoPrecio(producto.precio)} unidad
-  </strong>
+                    <strong>
+                      ${formatoPrecio(producto.precio)} unidad
+                    </strong>
 
-  <span className="subtotal-producto">
-    Subtotal: ${formatoPrecio(producto.precio * producto.cantidad)}
-  </span>
+                    <span className="subtotal-producto">
+                      Subtotal: $
+                      {formatoPrecio(
+                        producto.precio * producto.cantidad
+                      )}
+                    </span>
 
+                    {/* Controles de cantidad */}
                     <div className="controles-cantidad">
                       <button
                         onClick={() =>
                           onCambiarCantidad(producto.id, -1)
                         }
                         aria-label="Disminuir cantidad"
+                        disabled={producto.cantidad <= 1}
                       >
                         <Minus size={15} />
                       </button>
@@ -94,20 +128,37 @@ function CarritoCompras({
               ))}
             </div>
 
+            {/* Resumen de compra */}
             <div className="resumen-carrito">
               <div>
-                <span>Total</span>
+                <span>Total de la compra</span>
                 <strong>${formatoPrecio(total)}</strong>
               </div>
 
               <button
                 className="boton-finalizar-compra"
-                onClick={() =>
-                  alert('¡Gracias por elegir La Burguería!')
-                }
+                onClick={() => setCompraConfirmada(true)}
               >
                 Continuar compra
               </button>
+
+              {/* Confirmación visual */}
+              {compraConfirmada && (
+                <div
+                  className="mensaje-confirmacion"
+                  role="status"
+                >
+                  <CheckCircle size={24} />
+
+                  <h3>
+                    ¡Gracias por elegir La Burguería!
+                  </h3>
+
+                  <p>
+                    Tu pedido está listo para continuar.
+                  </p>
+                </div>
+              )}
             </div>
           </>
         )}
