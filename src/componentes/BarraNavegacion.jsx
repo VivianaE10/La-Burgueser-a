@@ -7,7 +7,6 @@ import {
   ShoppingBag,
   Beef,
   Drumstick,
-  Coffee,
 } from 'lucide-react';
 
 const categorias = [

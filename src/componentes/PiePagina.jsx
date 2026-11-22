@@ -1,3 +1,5 @@
+const currentYear = new Date().getFullYear();
+
 function PiePagina() {
     return (
       <footer className="pie-pagina">
@@ -23,7 +25,7 @@ function PiePagina() {
         </div>
   
         <div className="derechos-pie">
-          © {new Date().getFullYear()} La Burguería. Todos los derechos reservados.
+        © {currentYear} La Burguería. Todos los derechos reservados.
         </div>
       </footer>
     );
