@@ -434,6 +434,15 @@ img {
     color: #ffffff;
   }
   
+.boton-favorito.favorito-activo {
+  color: #e53935;
+  background-color: #fff;
+}
+
+.boton-favorito.favorito-activo svg {
+  fill: currentColor;
+}
+
   .informacion-producto {
     padding: 14px 17px 16px;
   }
