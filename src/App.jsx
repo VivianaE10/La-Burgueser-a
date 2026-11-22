@@ -9,10 +9,20 @@ function App() {
   const [categoriaActiva, setCategoriaActiva] = useState('Combos');
   const [carrito, setCarrito] = useState([]);
   const [carritoAbierto, setCarritoAbierto] = useState(false);
+  const [busqueda, setBusqueda] = useState('');
 
   const productosFiltrados = productos.filter((producto) => {
-    if (categoriaActiva === 'Combos') return true;
-    return producto.categoria === categoriaActiva;
+    const coincideCategoria =
+      categoriaActiva === 'Combos' ||
+      producto.categoria === categoriaActiva;
+  
+    const textoBusqueda = busqueda.trim().toLowerCase();
+  
+    const coincideBusqueda =
+      producto.nombre.toLowerCase().includes(textoBusqueda) ||
+      producto.descripcion.toLowerCase().includes(textoBusqueda);
+  
+    return coincideCategoria && coincideBusqueda;
   });
 
   const agregarAlCarrito = (producto) => {
@@ -63,6 +73,7 @@ function App() {
         onCategoriaChange={setCategoriaActiva}
         carritoCantidad={carritoCantidad}
         onAbrirCarrito={() => setCarritoAbierto(true)}
+        onBuscar={setBusqueda}
       />
 
       <main className="contenedor">

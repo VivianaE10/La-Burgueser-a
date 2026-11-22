@@ -20,6 +20,7 @@ function BarraNavegacion({
   onCategoriaChange,
   carritoCantidad,
   onAbrirCarrito,
+  onBuscar,
 }) {
   const [menuAbierto, setMenuAbierto] = useState(false);
   const [busquedaAbierta, setBusquedaAbierta] = useState(false);
@@ -77,16 +78,24 @@ function BarraNavegacion({
         </div>
 
         {busquedaAbierta && (
-          <div className="busqueda">
-            <input
-              type="search"
-              placeholder="¿Qué se te antoja hoy?"
-            />
-            <button onClick={() => setBusquedaAbierta(false)}>
-              <X size={20} />
-            </button>
-          </div>
-        )}
+  <div className="busqueda">
+    <input
+      type="search"
+      placeholder="¿Qué se te antoja hoy?"
+      onChange={(evento) => onBuscar(evento.target.value)}
+    />
+
+    <button
+      onClick={() => {
+        onBuscar('');
+        setBusquedaAbierta(false);
+      }}
+      aria-label="Cerrar búsqueda"
+    >
+      <X size={20} />
+    </button>
+  </div>
+)}
 
         {avisoSesion && (
           <div className="aviso-sesion">
