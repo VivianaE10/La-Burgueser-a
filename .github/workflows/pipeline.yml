@@ -30,6 +30,9 @@ jobs:
       - name: Analizar código con Oxlint
         run: npm run lint
 
+      - name: Auditar dependencias
+        run: npm audit
+
       - name: Ejecutar pruebas automatizadas
         run: npm run test:run
 
