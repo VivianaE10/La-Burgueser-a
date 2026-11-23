@@ -812,3 +812,256 @@ img {
   opacity: 0.4;
   cursor: not-allowed;
 }
+
+/* =====================================
+   NUEVO DISEÑO OSCURO - LA BURGUESERÍA
+===================================== */
+
+:root {
+  color: #f5f5f5;
+  background: #151515;
+}
+
+body {
+  background: #151515;
+  color: #f5f5f5;
+}
+
+/* ENCABEZADO */
+
+.encabezado,
+.barra-superior {
+  background: #1d1d1d;
+  border-color: #333;
+}
+
+.logo-restaurante {
+  color: #ffffff;
+}
+
+.boton-icono {
+  color: #ffffff;
+}
+
+.boton-icono:hover {
+  background: #333;
+}
+
+.boton-iniciar-sesion {
+  background: transparent;
+  color: #ffffff;
+  border-color: #555;
+}
+
+.boton-iniciar-sesion:hover {
+  background: #f2b705;
+  color: #151515;
+  border-color: #f2b705;
+}
+
+.boton-carrito {
+  background: #f2b705;
+  color: #151515;
+}
+
+/* CATEGORÍAS */
+
+.navegacion-categorias {
+  background: #1d1d1d;
+  border-color: #333;
+}
+
+.categoria {
+  color: #eeeeee;
+}
+
+.icono-categoria {
+  border-color: #777;
+}
+
+.categoria.activa .icono-categoria {
+  background: #f2b705;
+  color: #151515;
+  border-color: #f2b705;
+}
+
+/* BUSCADOR */
+
+.busqueda {
+  background: #151515;
+  border-color: #333;
+}
+
+.busqueda input {
+  background: #242424;
+  color: #ffffff;
+  border-color: #444;
+}
+
+.busqueda input::placeholder {
+  color: #aaa;
+}
+
+.aviso-sesion {
+  background: #252525;
+  color: #eeeeee;
+}
+
+/* MENÚ LATERAL */
+
+.menu-lateral {
+  background: #202020;
+  color: #ffffff;
+}
+
+.texto-menu {
+  color: #bbbbbb;
+}
+
+.opcion-menu {
+  color: #eeeeee;
+  border-color: #383838;
+}
+
+.opcion-menu:hover {
+  background: #333;
+}
+
+/* PRODUCTOS */
+
+.etiqueta-seccion {
+  color: #f2b705;
+}
+
+.encabezado-productos h2 {
+  color: #ffffff;
+}
+
+.encabezado-productos p,
+.cantidad-productos {
+  color: #bbbbbb;
+}
+
+.tarjeta-producto {
+  background: #242424;
+  border: 1px solid #333;
+}
+
+.tarjeta-producto:hover {
+  box-shadow: 0 12px 28px rgb(0 0 0 / 35%);
+}
+
+.imagen-producto {
+  background: #303030;
+}
+
+.informacion-producto h3 {
+  color: #ffffff;
+}
+
+.informacion-producto p {
+  color: #bdbdbd;
+}
+
+.pie-tarjeta strong {
+  color: #f2b705;
+}
+
+.boton-agregar {
+  background: #f2b705;
+  color: #151515;
+  border-color: #f2b705;
+}
+
+.boton-agregar:hover {
+  background: #ffffff;
+  color: #151515;
+  border-color: #ffffff;
+}
+
+.sin-productos {
+  background: #242424;
+  color: #ffffff;
+}
+
+.sin-productos p {
+  color: #bbbbbb;
+}
+
+/* CARRITO */
+
+.panel-carrito {
+  background: #202020;
+  color: #ffffff;
+}
+
+.encabezado-carrito {
+  border-color: #3b3b3b;
+}
+
+.encabezado-carrito p {
+  color: #bbbbbb;
+}
+
+.encabezado-carrito button,
+.controles-cantidad button {
+  color: #ffffff;
+}
+
+.carrito-vacio {
+  color: #bbbbbb;
+}
+
+.carrito-vacio h3 {
+  color: #ffffff;
+}
+
+.producto-carrito {
+  border-color: #3b3b3b;
+}
+
+.detalle-carrito h3,
+.detalle-carrito strong {
+  color: #ffffff;
+}
+
+.subtotal-producto {
+  color: #bbbbbb;
+}
+
+.resumen-carrito {
+  border-color: #3b3b3b;
+}
+
+.resumen-carrito div {
+  color: #ffffff;
+}
+
+.boton-finalizar-compra {
+  background: #f2b705;
+  color: #151515;
+}
+
+.boton-finalizar-compra:hover {
+  background: #ffd447;
+}
+
+.mensaje-confirmacion {
+  background: #253b2a;
+  color: #b8efc1;
+}
+
+/* PIE DE PÁGINA */
+
+.pie-pagina {
+  background: #101010;
+  border-top: 1px solid #333;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+  .contenedor {
+    width: calc(100% - 28px);
+  }
+}
