@@ -10,8 +10,8 @@ import {
 } from 'lucide-react';
 
 const categorias = [
+  { nombre: 'Todos', Icono: Beef },
   { nombre: 'Combos', Icono: Beef },
-  { nombre: 'Hamburguesas', Icono: Beef },
   { nombre: 'Pollo', Icono: Drumstick },
 ];
 

@@ -1,27 +1,31 @@
+
 import { useState } from 'react';
 import BarraNavegacion from './componentes/BarraNavegacion';
 import ListaProductos from './componentes/ListaProductos';
 import CarritoCompras from './componentes/CarritoCompras';
 import { productos } from './datos/productos';
 import PiePagina from './componentes/PiePagina';
+import {
+  calcularCantidadTotal,
+} from './utils/carrito';
 
 function App() {
-  const [categoriaActiva, setCategoriaActiva] = useState('Combos');
+  const [categoriaActiva, setCategoriaActiva] = useState('Todos');
   const [carrito, setCarrito] = useState([]);
   const [carritoAbierto, setCarritoAbierto] = useState(false);
   const [busqueda, setBusqueda] = useState('');
 
   const productosFiltrados = productos.filter((producto) => {
     const coincideCategoria =
-      categoriaActiva === 'Combos' ||
+      categoriaActiva === 'Todos' ||
       producto.categoria === categoriaActiva;
-  
+
     const textoBusqueda = busqueda.trim().toLowerCase();
-  
+
     const coincideBusqueda =
       producto.nombre.toLowerCase().includes(textoBusqueda) ||
       producto.descripcion.toLowerCase().includes(textoBusqueda);
-  
+
     return coincideCategoria && coincideBusqueda;
   });
 
@@ -61,10 +65,7 @@ function App() {
     );
   };
 
-  const carritoCantidad = carrito.reduce(
-    (total, producto) => total + producto.cantidad,
-    0
-  );
+  const carritoCantidad = calcularCantidadTotal(carrito);
 
   return (
     <>
@@ -82,7 +83,9 @@ function App() {
           onAgregar={agregarAlCarrito}
         />
       </main>
+
       <PiePagina />
+
       {carritoAbierto && (
         <CarritoCompras
           carrito={carrito}
